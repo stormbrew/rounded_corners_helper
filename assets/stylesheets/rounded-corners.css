@@ -4,4 +4,8 @@
 .r2{margin: 0 3px;}
 .r3{margin: 0 2px;}
 .r4{margin: 0 1px; height: 2px; }
-.contain{text-align:center;}
+.rcontainer {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.rcontain{padding: 5px;}

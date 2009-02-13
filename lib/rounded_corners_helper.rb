@@ -1,21 +1,22 @@
 module RoundedCornersHelper
-  def rounded(text, background, color, width)
-  output = ""
-  output << "<div id=\"container\" style=\"width:#{width};\">"
-  output << "<div class=\"rtop\">"
-  output << "<div class=\"r1\" style=\"background:#{background};\"></div>"
-  output << "<div class=\"r2\" style=\"background:#{background};\"></div>"
-  output << "<div class=\"r3\" style=\"background:#{background};\"></div>"
-  output << "<div class=\"r4\" style=\"background:#{background};\"></div>"
-  output << "</div>"
-  output << "<div class=\"contain\" style=\"background:#{background};color:#{color};\">#{text}</div>"
-  output << "<div class=\"rbottom\">"
-  output << "<div class=\"r4\" style=\"background:#{background};\"></div>"
-  output << "<div class=\"r3\" style=\"background:#{background};\"></div>"
-  output << "<div class=\"r2\" style=\"background:#{background};\"></div>"
-  output << "<div class=\"r1\" style=\"background:#{background};\"></div>"
-  output << "</div>"
-  output << "</div>"
-  return output
+  def rounded(background, color, width, &block)
+		output = self
+	  output.concat "<div class=\"rcontainer\" style=\"width:#{width};\">"
+	  output.concat "<div class=\"rtop\">"
+	  output.concat "<div class=\"r1\" style=\"background:#{background};\"></div>"
+	  output.concat "<div class=\"r2\" style=\"background:#{background};\"></div>"
+	  output.concat "<div class=\"r3\" style=\"background:#{background};\"></div>"
+	  output.concat "<div class=\"r4\" style=\"background:#{background};\"></div>"
+	  output.concat "</div>"
+	  output.concat "<div class=\"rcontain\" style=\"background:#{background};color:#{color};\">"
+		block.call
+		output.concat "</div>"
+	  output.concat "<div class=\"rbottom\">"
+	  output.concat "<div class=\"r4\" style=\"background:#{background};\"></div>"
+	  output.concat "<div class=\"r3\" style=\"background:#{background};\"></div>"
+	  output.concat "<div class=\"r2\" style=\"background:#{background};\"></div>"
+	  output.concat "<div class=\"r1\" style=\"background:#{background};\"></div>"
+	  output.concat "</div>"
+	  output.concat "</div>"
   end
 end
